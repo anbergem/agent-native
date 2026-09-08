@@ -1455,4 +1455,152 @@ export const AUTH_MARKETING_LOCALE_COPY: Partial<
       ],
     },
   },
+  "nb-NO": {
+    analytics: {
+      tagline:
+        "KI-agenten din spør datakildene dine, bygger dashbord og svarer på forretningsspørsmål sammen med deg.",
+      features: [
+        "Still hvilket som helst spørsmål og få svar fra BigQuery, HubSpot, Jira og flere",
+        "Agentbygde dashbord som henter sanntidsdata fra alle kildene dine",
+        "Lagrede analyser agenten kan kjøre på nytt med ferske tall når du vil",
+      ],
+    },
+    brain: {
+      tagline:
+        "Et minnelag for selskapet, der rå samtaler blir gjennomgått og søkbar felles kunnskap.",
+      features: [
+        "Importer transkripsjoner, notater, Slack-eksporter og Granola-sammendrag",
+        "Kontroller hvert faktum mot nøyaktige sitater fra kilden",
+        "Gå gjennom kunnskap på tvers av selskapet med forslagsarbeidsflyter",
+      ],
+    },
+    calendar: {
+      tagline:
+        "KI-agenten din planlegger, flytter og styrer kalenderen din, så du aldri trenger å gjøre det selv.",
+      features: [
+        "Finner ledige tider og booker møter på dine vegne",
+        "Håndterer tilgjengelighet og bookinglenker automatisk",
+        "Svarer på spørsmål om timeplanen og løser konflikter umiddelbart",
+      ],
+    },
+    clips: {
+      tagline:
+        "KI-agenten din transkriberer, oppsummerer og søker i alt du spiller inn, sammen med deg.",
+      features: [
+        "Skjermopptak med ett klikk, med automatiske titler, sammendrag og kapitler",
+        "Kalendersynkroniserte møtenotater med direkte transkripsjon og oppfølgingspunkter",
+        "Talediktering med snakketast som gir ren tekst uansett hvor du er",
+        "Ett søkbart bibliotek på tvers av opptak, møter og dikteringer",
+      ],
+    },
+    content: {
+      tagline:
+        "Obsidian for MDX med åpen kildekode: KI-agenten din redigerer lokale dokumenter, lager egne blokker og organiserer alt sammen med deg.",
+      features: [
+        "Rediger lokale Markdown- og MDX-filer direkte, med skysynkronisering når du trenger det",
+        "Lag rike, interaktive MDX-blokker og rediger egenskapene deres visuelt",
+        "Søk, oppsummer, kryssreferer og restrukturer dokumenttrær umiddelbart",
+      ],
+    },
+    plan: {
+      tagline:
+        "Visuelle planer, PR-sammendrag, diagrammer, skisser og delbare gjennomganger for arbeid gjort av kodeagenter.",
+      features: [
+        "Gjør implementasjonsplaner om til strukturerte visuelle artefakter",
+        "Gå gjennom PR-sammendrag med diagrammer, filkart og kommentert kode",
+        "Del lenker for asynkrone kommentarer og produktgjennomgang",
+      ],
+    },
+    design: {
+      tagline:
+        "Design og prototyp ved å beskrive det du vil ha. KI-agenten gjør ideene dine om til interaktive, fullt responsive design på sekunder.",
+      features: [
+        "Lag forseggjorte prototyper bare ved å beskrive dem",
+        "Bygg og bruk designsystemer som holder alt i tråd med merkevaren",
+        "Eksporter arbeidet ditt eller del det med en lenke",
+      ],
+    },
+    dispatch: {
+      tagline:
+        "KI-agenten din forvalter hemmeligheter, koordinerer andre agenter og ruter meldinger på tvers av arbeidsområdet ditt.",
+      features: [
+        "Sentralt hvelv for hemmeligheter med finmasket tilgang per app",
+        "Koordinering og delegering mellom agenter og til spesialiserte apper",
+        "Ruting til Slack og Telegram med godkjenningsflyter",
+      ],
+    },
+    forms: {
+      tagline:
+        "KI-agenten din bygger, publiserer og analyserer skjemaer sammen med deg.",
+      features: [
+        "Lag komplette skjemaer fra én setning",
+        "Publiser umiddelbart med delbare lenker og captcha",
+        "Sammendrag av svar, eksport og trendanalyse når du trenger det",
+      ],
+    },
+    assets: {
+      tagline:
+        "KI-agenten din lager, forbedrer og organiserer merkevaretilpasset materiell sammen med deg.",
+      features: [
+        "Bygg gjenbrukbare mediebibliotek av logoer, produktbilder, videoer og referanser",
+        "Generer toppbilder, diagrammer, lysbildegrafikk, produktvisuals og videoer fra en ledetekst",
+        "Gå gjennom ledetekster, referanser, resultater og forbedringer for hver kjøring",
+      ],
+    },
+    mail: {
+      tagline:
+        "KI-agenten din leser, skriver og organiserer e-post sammen med deg.",
+      features: [
+        "Svar som treffer tonen og stilen din",
+        "Gmail med flere kontoer i én samlet innboks",
+        "Selvstendig sortering, arkivering og oppfølging",
+      ],
+    },
+    slides: {
+      tagline:
+        "KI-agenten din bygger, redigerer og forbedrer presentasjoner sammen med deg.",
+      features: [
+        "Generer hele presentasjoner fra én ledetekst",
+        "Presise endringer på enkeltlysbilder mens du presenterer eller går gjennom",
+        "Sanntidssamarbeid mellom deg og agenten",
+      ],
+    },
+    chat: {
+      tagline:
+        "Start med en samtaleførst-app og legg til handlinger, skjermer og arbeidsflyter etter hvert som agenten din vokser.",
+      features: [
+        "Fullsides samtale med varige tråder og historikk over verktøykall",
+        "Handlinger virker fra samtalen, brukerflaten, HTTP, MCP, A2A og CLI",
+        "Bruk den innebygde app-agent-løkken eller koble til din egen agent-backend",
+      ],
+    },
+    crm: {
+      tagline:
+        "Et komplett CRM på Native SQL, eller en tilkoblet følgesvenn forankret i kildesystemet sitt.",
+      features: [
+        "Kjør kunder, personer, salgsmuligheter, oppgaver og oppfølgingsløp på Native SQL",
+        "Koble til avgrensede HubSpot- eller Salesforce-poster uten å kopiere påloggingsinformasjon",
+        "Jobb med de samme trygge handlingene fra brukerflaten eller fra CRM-agenten din",
+      ],
+    },
+    factory: {
+      tagline:
+        "Bygg agentfabrikker: arbeid inn i den ene enden, leverte endringer ut av den andre, med porter du styrer.",
+      features: [
+        "Inspiser signaler fra Slack og pull-forespørsler i én kø",
+        "Juster regler med ledetekster og tilbakemeldinger som kan gjennomgås",
+        "Godkjenn avgrenset agentarbeid med et varig revisjonsspor",
+      ],
+    },
+    tasks: {
+      tagline:
+        "Styr dine egne oppgaver: sorter i innboksen, fullfør fra listen. Bruk en agent som kan gjøre alt det for deg.",
+      features: [
+        "Innbokssortering – fang opp ideer og utkast mens de kommer, og gjør dem til oppgaver når de er klare",
+        "Oppgavestyring – opprett, endre rekkefølge på og fullfør oppgaver i en liste som beholder rekkefølgen du satte",
+        "Følg det du bryr deg om med egne felt – tekst, tall, valuta, datoer og fargekodede valg",
+        "Alt du kan gjøre her, kan agenten også gjøre – og den ser hva som er på skjermen din, så «fullfør disse» betyr radene du faktisk valgte",
+      ],
+    },
+  },
 };

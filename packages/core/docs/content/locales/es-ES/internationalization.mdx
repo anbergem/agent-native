@@ -55,6 +55,7 @@ export const i18nCatalog = createAgentNativeI18nCatalog({
     "pt-BR": () => import("./pt-BR"),
     "hi-IN": () => import("./hi-IN"),
     "ar-SA": () => import("./ar-SA"),
+    "nb-NO": () => import("./nb-NO"),
   },
 });
 ```
@@ -64,7 +65,7 @@ antes de que se cargue cualquier configuración regional. `localeLoaders`
 importa dinámicamente todos los demás catálogos para que los usuarios solo
 descarguen la configuración regional activa. Los códigos de configuración
 regional admitidos son `en-US`, `zh-CN`, `zh-TW`, `es-ES`, `fr-FR`, `de-DE`,
-`ja-JP`, `ko-KR`, `pt-BR`, `hi-IN` y `ar-SA`.
+`ja-JP`, `ko-KR`, `pt-BR`, `hi-IN`, `ar-SA` y `nb-NO`.
 
 Esta lista está fijada por el framework. No es simplemente lo que este
 ejemplo incluye por casualidad. `LocaleCode` es una unión de TypeScript
@@ -79,7 +80,7 @@ sí, no agregar un archivo de catálogo a su aplicación.
 que por defecto es `en-US`, y un arreglo `supportedLocales` opcional.
 Configure `supportedLocales` cuando una aplicación distribuya traducciones
 para solo algunas de las configuraciones regionales del framework en lugar
-de las diez. Por defecto incluye todas las configuraciones regionales que
+de todas ellas. Por defecto incluye todas las configuraciones regionales que
 admite el framework. `LanguagePicker` solo lista las configuraciones
 regionales de este conjunto, y cualquier configuración regional detectada o
 solicitada que quede fuera de él recurre a `sourceLocale`.

@@ -2784,7 +2784,7 @@ const baseMessagesByLocale = {
       optionsFor: "خيارات المحادثة لـ {{title}}",
     },
   }),
-} satisfies Record<LocaleCode, Messages>;
+} satisfies Partial<Record<LocaleCode, Messages>>;
 
 type DeepPartial<T> = {
   [K in keyof T]?: T[K] extends Record<string, unknown>

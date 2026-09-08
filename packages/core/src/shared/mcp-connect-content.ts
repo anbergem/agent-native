@@ -799,6 +799,59 @@ const MCP_CONNECT_GUIDE_TRANSLATIONS: Partial<
       actionLabel: "نسخ الإعدادات",
     },
   },
+  "nb-NO": {
+    claude: {
+      steps: [
+        "Åpne Customize → Connectors i Claude.",
+        "Klikk på +-knappen → Add custom connector.",
+        "Lim inn MCP-URL-en ovenfor, kall den {appName}, og klikk Connect.",
+        "På samtykkesiden klikker du Authorize for å godkjenne mcp:read, mcp:write og mcp:apps.",
+      ],
+      actionLabel: "Åpne Claude → Connectors",
+      note: "Fungerer i Claude på nett og i Claude Desktop. Innebygde MCP-apper (diagrammer, dashbord og utkast) vises automatisk inne i samtalen.",
+    },
+    chatgpt: {
+      steps: [
+        "I ChatGPT på nett åpner du Settings → Apps → Advanced settings og slår på utviklermodus hvis arbeidsområdet ditt krever det.",
+        "Velg Create app, lim inn MCP-URL-en ovenfor, velg OAuth, og les inn verktøyene.",
+        "Logg inn med Agent-Native-kontoen din, godkjenn de forespurte tilgangene, og aktiver appen i en samtale.",
+      ],
+      actionLabel: "Åpne ChatGPT",
+      note: "Egendefinerte MCP-apper er tilgjengelige i støttede ChatGPT-arbeidsområder på nett. Business-, Enterprise- og Edu-arbeidsområder støtter full MCP, inkludert skrivehandlinger; Pro støtter lesing og henting i utviklermodus. Hvis Apps eller Create app mangler, tillater ikke planen din eller arbeidsområdets regler dette oppsettet. Administratorer for arbeidsområdet må kanskje slå på utviklermodus eller publisere appen.",
+    },
+    cursor: {
+      steps: [
+        "Åpne Cursor → Settings → MCP.",
+        "Klikk Add MCP Server, lim inn MCP-URL-en ovenfor, og lagre.",
+        "Når du blir bedt om det, logger du inn med Agent-Native-kontoen din og godkjenner MCP-tilgangene.",
+      ],
+      note: "Cursor støtter eksterne MCP-servere med OAuth, med samme lim-inn-URL-flyt som Claude – ingen terminal nødvendig.",
+    },
+    "claude-code": {
+      intro: "Kjør dette i terminalen:",
+      actionLabel: "Kopier kommandoen",
+      note: "Skriv deretter /mcp inne i Claude Code, velg {serverId}, og klikk Authenticate. Claude fullfører OAuth-flyten selv – ingen statisk token er nødvendig.",
+    },
+    codex: {
+      intro: "Kjør dette i terminalen:",
+      actionLabel: "Kopier kommandoen",
+      note: "Åpner denne siden i nettleseren og skriver Codex sin ~/.codex/config.toml automatisk. Samme kommando fungerer for Claude Cowork og Goose.",
+    },
+    grok: {
+      steps: [
+        "Åpne grok.com/connectors og velg New Connector → Custom.",
+        "Lim inn MCP-URL-en ovenfor og fullfør autentiseringen som blir etterspurt.",
+        "Aktiver koblingen i en samtale etter at Grok har oppdaget verktøyene.",
+      ],
+      actionLabel: "Åpne Grok → Connectors",
+      note: "Grok krever en MCP-server som er tilgjengelig offentlig. Hvilke koblinger og autentiseringsvalg som finnes, avhenger av planen din og reglene for arbeidsområdet.",
+    },
+    other: {
+      intro:
+        "Alle MCP-kompatible klienter med støtte for ekstern OAuth: lim inn MCP-URL-en ovenfor. For klienter uten OAuth limer du inn dette .mcp.json-utdraget og genererer et statisk bearer-token nedenfor:",
+      actionLabel: "Kopier konfigurasjonen",
+    },
+  },
 };
 
 export function getMcpConnectGuides(
@@ -900,6 +953,13 @@ const MCP_STATIC_TOKEN_TRANSLATIONS: Partial<
     resultTitle: "تم إنشاء رمز الاتصال",
     resultCopy:
       "الصقه في إعدادات MCP الخاصة بالوكيل. يظهر الرمز مرة واحدة فقط.",
+  },
+  "nb-NO": {
+    title: "Opprett et statisk token",
+    state: "Avansert – klienter uten OAuth",
+    resultTitle: "Tilkoblingstoken er opprettet",
+    resultCopy:
+      "Lim dette inn i MCP-konfigurasjonen til agenten din. Tokenet vises bare én gang.",
   },
 };
 

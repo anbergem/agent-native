@@ -206,6 +206,7 @@ describe("LanguagePicker", () => {
       "한국어",
       "हिन्दी",
       "العربية",
+      "Norsk bokmål",
     ]);
   });
 

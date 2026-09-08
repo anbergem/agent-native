@@ -1379,12 +1379,7 @@ const enUS = {
 type Messages = typeof enUS;
 type Section = keyof Messages;
 
-const analyticsSliceTranslations: {
-  [K in Exclude<LocaleCode, "en-US">]: Pick<
-    Messages,
-    "dataDictionary" | "dataSources" | "panelEditor" | "legacyFusion"
-  >;
-} = {
+const analyticsSliceTranslations = {
   "zh-TW": {
     dataDictionary: zhTW.dataDictionary,
     dataSources: zhTW.dataSources,
@@ -4938,6 +4933,14 @@ const analyticsSliceTranslations: {
       untitledTheme: "موضوع بدون عنوان",
     },
   },
+} satisfies {
+  // Optional per locale: this template only ships slices for the locales
+  // it has been translated into, and `satisfies` keeps each present
+  // locale exactly typed at its use sites.
+  [K in Exclude<LocaleCode, "en-US">]?: Pick<
+    Messages,
+    "dataDictionary" | "dataSources" | "panelEditor" | "legacyFusion"
+  >;
 };
 
 function mergeMessages(overrides: {
@@ -6975,7 +6978,12 @@ export const messagesByLocale = {
       failedToDecodePanel: "تعذر فك ترميز اللوحة",
     },
   }),
-} satisfies Record<LocaleCode, Messages>;
+} satisfies Partial<Record<LocaleCode, Messages>>;
+
+// The override loops below walk translation sets keyed by locale. Reading them
+// through a Partial view keeps their "no catalog for this locale, skip it"
+// guard type-checked instead of resolving to `any`.
+const localeCatalogs: Partial<Record<LocaleCode, Messages>> = messagesByLocale;
 
 for (const locale of Object.keys(creativeContextMessagesByLocale) as Array<
   keyof typeof creativeContextMessagesByLocale
@@ -9387,14 +9395,14 @@ const analyticsBackendTranslations: Partial<
 for (const [locale, section] of Object.entries(
   analyticsBackendTranslations,
 ) as Array<[LocaleCode, Partial<Messages["analyticsBackend"]>]>) {
-  const messages = messagesByLocale[locale];
+  const messages = localeCatalogs[locale];
   if (messages) Object.assign(messages.analyticsBackend, section);
 }
 
 for (const [locale, overrides] of Object.entries(
   translatedAnalyticsDebtTranslations,
 ) as Array<[LocaleCode, AnalyticsPartialMessages]>) {
-  const messages = messagesByLocale[locale];
+  const messages = localeCatalogs[locale];
   if (!messages) continue;
 
   for (const [section, sectionOverrides] of Object.entries(overrides) as Array<
@@ -9719,7 +9727,7 @@ const translatedAnalyticsDebtCorrections = {
 for (const [locale, overrides] of Object.entries(
   translatedAnalyticsDebtCorrections,
 ) as Array<[LocaleCode, AnalyticsPartialMessages]>) {
-  const messages = messagesByLocale[locale];
+  const messages = localeCatalogs[locale];
   if (!messages) continue;
 
   for (const [section, sectionOverrides] of Object.entries(overrides) as Array<
@@ -9981,7 +9989,7 @@ const translatedDashboardOverviewTranslations = {
 for (const [locale, overrides] of Object.entries(
   translatedDashboardOverviewTranslations,
 ) as Array<[LocaleCode, AnalyticsPartialMessages]>) {
-  const messages = messagesByLocale[locale];
+  const messages = localeCatalogs[locale];
   if (!messages) continue;
   for (const [section, sectionOverrides] of Object.entries(overrides) as Array<
     [Section, Partial<Messages[Section]>]
@@ -10226,7 +10234,7 @@ const translatedAnalyticsRawTranslations = {
 for (const [locale, overrides] of Object.entries(
   translatedAnalyticsRawTranslations,
 ) as Array<[LocaleCode, AnalyticsPartialMessages]>) {
-  const messages = messagesByLocale[locale];
+  const messages = localeCatalogs[locale];
   if (!messages) continue;
 
   for (const [section, sectionOverrides] of Object.entries(overrides) as Array<
@@ -11361,7 +11369,7 @@ const translatedSessionReplayTranslations = {
 for (const [locale, overrides] of Object.entries(
   translatedSessionReplayTranslations,
 ) as Array<[LocaleCode, AnalyticsPartialMessages]>) {
-  const messages = messagesByLocale[locale];
+  const messages = localeCatalogs[locale];
   if (!messages) continue;
 
   for (const [section, sectionOverrides] of Object.entries(overrides) as Array<
@@ -11680,7 +11688,7 @@ const translatedDashboardReportTranslations = {
 for (const [locale, overrides] of Object.entries(
   translatedDashboardReportTranslations,
 ) as Array<[LocaleCode, AnalyticsPartialMessages]>) {
-  const messages = messagesByLocale[locale];
+  const messages = localeCatalogs[locale];
   if (!messages) continue;
 
   for (const [section, sectionOverrides] of Object.entries(overrides) as Array<
@@ -12509,7 +12517,7 @@ const translatedAlertSettingsTranslations = {
 for (const [locale, overrides] of Object.entries(
   translatedAlertSettingsTranslations,
 ) as Array<[LocaleCode, AnalyticsPartialMessages]>) {
-  const messages = messagesByLocale[locale];
+  const messages = localeCatalogs[locale];
   if (!messages) continue;
 
   for (const [section, sectionOverrides] of Object.entries(overrides) as Array<
@@ -12832,7 +12840,7 @@ const translatedSessionDevToolsTranslations = {
 for (const [locale, overrides] of Object.entries(
   translatedSessionDevToolsTranslations,
 ) as Array<[LocaleCode, AnalyticsPartialMessages]>) {
-  const messages = messagesByLocale[locale];
+  const messages = localeCatalogs[locale];
   if (!messages) continue;
 
   for (const [section, sectionOverrides] of Object.entries(overrides) as Array<
@@ -13520,7 +13528,7 @@ const translatedDashboardAdminTranslations = {
 for (const [locale, overrides] of Object.entries(
   translatedFeatureFlagAdminTranslations,
 ) as Array<[LocaleCode, AnalyticsPartialMessages]>) {
-  const messages = messagesByLocale[locale];
+  const messages = localeCatalogs[locale];
   if (!messages) continue;
   for (const [section, sectionOverrides] of Object.entries(overrides) as Array<
     [Section, Partial<Messages[Section]>]
@@ -13532,7 +13540,7 @@ for (const [locale, overrides] of Object.entries(
 for (const [locale, overrides] of Object.entries(
   translatedDashboardAdminTranslations,
 ) as Array<[LocaleCode, AnalyticsPartialMessages]>) {
-  const messages = messagesByLocale[locale];
+  const messages = localeCatalogs[locale];
   if (!messages) continue;
 
   for (const [section, sectionOverrides] of Object.entries(overrides) as Array<
@@ -13964,7 +13972,7 @@ const translatedHistoryTranslations = {
 for (const [locale, overrides] of Object.entries(
   translatedHistoryTranslations,
 ) as Array<[LocaleCode, AnalyticsPartialMessages]>) {
-  const messages = messagesByLocale[locale];
+  const messages = localeCatalogs[locale];
   if (!messages) continue;
 
   for (const [section, sectionOverrides] of Object.entries(overrides) as Array<

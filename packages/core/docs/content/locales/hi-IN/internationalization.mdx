@@ -57,6 +57,7 @@ export const i18nCatalog = createAgentNativeI18nCatalog({
     "pt-BR": () => import("./pt-BR"),
     "hi-IN": () => import("./hi-IN"),
     "ar-SA": () => import("./ar-SA"),
+    "nb-NO": () => import("./nb-NO"),
   },
 });
 ```
@@ -65,7 +66,7 @@ export const i18nCatalog = createAgentNativeI18nCatalog({
 हमेशा उपलब्ध रहे। `localeLoaders` बाकी हर catalog को dynamic-import करता है ताकि
 उपयोगकर्ता केवल सक्रिय locale ही डाउनलोड करें। समर्थित locale codes हैं `en-US`,
 `zh-CN`, `zh-TW`, `es-ES`, `fr-FR`, `de-DE`, `ja-JP`, `ko-KR`, `pt-BR`, `hi-IN`,
-और `ar-SA`।
+`ar-SA` और `nb-NO`।
 
 यह सूची फ्रेमवर्क द्वारा तय की गई है। यह केवल इस उदाहरण में bundle किए गए locales तक
 सीमित नहीं है। `LocaleCode` ठीक इन्हीं codes का एक TypeScript union है, और
@@ -76,7 +77,7 @@ right-to-left भाषाओं के लिए text direction। एक न�
 
 `createAgentNativeI18nCatalog` एक वैकल्पिक `sourceLocale` भी स्वीकार करता है, जो
 डिफ़ॉल्ट रूप से `en-US` होता है, और एक वैकल्पिक `supportedLocales` array भी।
-`supportedLocales` तब सेट करें जब कोई ऐप फ्रेमवर्क के सभी दस locales के बजाय केवल
+`supportedLocales` तब सेट करें जब कोई ऐप फ्रेमवर्क के सभी locales के बजाय केवल
 कुछ के लिए ही अनुवाद प्रदान करता हो। यह डिफ़ॉल्ट रूप से फ्रेमवर्क द्वारा समर्थित हर
 locale को शामिल करता है। `LanguagePicker` केवल इसी सेट में मौजूद locales को
 सूचीबद्ध करता है, और इसके बाहर पहचाना गया या अनुरोधित कोई भी locale `sourceLocale`

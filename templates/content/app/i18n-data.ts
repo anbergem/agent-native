@@ -2572,7 +2572,7 @@ const databaseMessagesByLocale = {
     viewName: "اسم العرض",
     wrapAllContent: "التفاف كل المحتوى",
   },
-} satisfies Record<LocaleCode, Partial<typeof databaseMessages>>;
+} satisfies Partial<Record<LocaleCode, Partial<typeof databaseMessages>>>;
 
 const editorPropertiesMessages = {
   add: "Add",
@@ -9619,7 +9619,7 @@ const landingMessagesByLocale = {
       "لم تعد صفحتك السابقة متاحة، لذلك فتحنا صفحة الترحيب.",
     saveFailed: "تعذر حفظ موضعك",
   },
-} satisfies Record<Exclude<LocaleCode, "en-US">, typeof enUS.landing>;
+} satisfies Partial<Record<Exclude<LocaleCode, "en-US">, typeof enUS.landing>>;
 
 function mergeMessages(overrides: PartialMessages): Messages {
   return {
@@ -9662,8 +9662,16 @@ function mergeMessages(overrides: PartialMessages): Messages {
   };
 }
 
+/**
+ * Locales this template ships translations for. Narrower than LocaleCode on
+ * purpose: a supported locale with no catalog here falls back to en-US, so the
+ * framework can add a locale without every template being translated first.
+ */
+type TemplateLocale = keyof typeof creativeContextMessagesByLocale;
+type TranslatedLocale = Exclude<TemplateLocale, "en-US">;
+
 function mergeMessagesForLocale(
-  locale: Exclude<LocaleCode, "en-US">,
+  locale: TranslatedLocale,
   overrides: PartialMessages,
 ): Messages {
   const defaultRawLiteralOverrides = rawLiteralLocaleMessages["es-ES"] ?? {};
@@ -11513,7 +11521,12 @@ export const messagesByLocale = {
       untitled: "بدون عنوان",
     },
   }),
-} satisfies Record<LocaleCode, Messages>;
+} satisfies Partial<Record<LocaleCode, Messages>>;
+
+// The override loops below walk translation sets keyed by locale. Reading them
+// through a Partial view keeps their "no catalog for this locale, skip it"
+// guard type-checked instead of resolving to `any`.
+const localeCatalogs: Partial<Record<LocaleCode, Messages>> = messagesByLocale;
 
 const sidebarPinnedMessagesByLocale: Partial<
   Record<LocaleCode, Partial<Messages["sidebar"]>>
@@ -12413,7 +12426,7 @@ const contentExactEnglishTranslations = {
 for (const [locale, overrides] of Object.entries(
   contentExactEnglishTranslations,
 ) as Array<[LocaleCode, PartialMessages]>) {
-  const messages = messagesByLocale[locale];
+  const messages = localeCatalogs[locale];
   if (!messages) continue;
   for (const [group, groupOverrides] of Object.entries(overrides)) {
     const target = (messages as Record<string, Record<string, unknown>>)[group];

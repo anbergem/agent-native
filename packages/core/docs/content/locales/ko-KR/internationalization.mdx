@@ -51,15 +51,16 @@ export const i18nCatalog = createAgentNativeI18nCatalog({
     "pt-BR": () => import("./pt-BR"),
     "hi-IN": () => import("./hi-IN"),
     "ar-SA": () => import("./ar-SA"),
+    "nb-NO": () => import("./nb-NO"),
   },
 });
 ```
 
-`messages`는 `en-US`를 직접 번들로 포함하므로 다른 로케일이 로드되기 전에도 항상 사용할 수 있습니다. `localeLoaders`는 그 외 모든 카탈로그를 동적 임포트하므로 사용자는 활성 로케일만 다운로드합니다. 지원되는 로케일 코드는 `en-US`, `zh-CN`, `zh-TW`, `es-ES`, `fr-FR`, `de-DE`, `ja-JP`, `ko-KR`, `pt-BR`, `hi-IN`, `ar-SA`입니다.
+`messages`는 `en-US`를 직접 번들로 포함하므로 다른 로케일이 로드되기 전에도 항상 사용할 수 있습니다. `localeLoaders`는 그 외 모든 카탈로그를 동적 임포트하므로 사용자는 활성 로케일만 다운로드합니다. 지원되는 로케일 코드는 `en-US`, `zh-CN`, `zh-TW`, `es-ES`, `fr-FR`, `de-DE`, `ja-JP`, `ko-KR`, `pt-BR`, `hi-IN`, `ar-SA`, `nb-NO`입니다.
 
 이 목록은 프레임워크에 의해 고정되어 있습니다. 이는 단순히 이 예제가 번들로 포함하는 로케일에 그치지 않습니다. `LocaleCode`는 정확히 이 코드들로 이루어진 TypeScript union이며, `set-localization-preference`는 런타임에 그 외의 값을 거부합니다. 각 로케일에는 오른쪽에서 왼쪽으로 쓰는 언어의 텍스트 방향처럼 프레임워크가 정리한 메타데이터도 필요합니다. 새 로케일을 추가한다는 것은 앱에 카탈로그 파일을 추가하는 일이 아니라 프레임워크 자체를 확장하는 일을 의미합니다.
 
-`createAgentNativeI18nCatalog`는 기본값이 `en-US`인 선택적 `sourceLocale`과 선택적 `supportedLocales` 배열도 받습니다. 앱이 열 개 로케일 전부가 아니라 프레임워크가 지원하는 로케일 중 일부에 대해서만 번역을 제공한다면 `supportedLocales`를 설정하세요. 기본값은 프레임워크가 지원하는 모든 로케일입니다. `LanguagePicker`는 이 집합에 속한 로케일만 나열하며, 감지되거나 요청된 로케일이 이 집합 밖에 있으면 `sourceLocale`로 대체됩니다.
+`createAgentNativeI18nCatalog`는 기본값이 `en-US`인 선택적 `sourceLocale`과 선택적 `supportedLocales` 배열도 받습니다. 앱이 로케일 전부가 아니라 프레임워크가 지원하는 로케일 중 일부에 대해서만 번역을 제공한다면 `supportedLocales`를 설정하세요. 기본값은 프레임워크가 지원하는 모든 로케일입니다. `LanguagePicker`는 이 집합에 속한 로케일만 나열하며, 감지되거나 요청된 로케일이 이 집합 밖에 있으면 `sourceLocale`로 대체됩니다.
 
 ## UI
 

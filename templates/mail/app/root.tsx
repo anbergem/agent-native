@@ -89,19 +89,23 @@ function getHydrationStableLocaleInitScript() {
 const THEME_INIT_SCRIPT = getHydrationStableThemeInitScript();
 const LOCALE_INIT_SCRIPT = getHydrationStableLocaleInitScript();
 
-const MAIL_ERROR_COPY: Record<
-  LocaleCode,
-  {
-    title: string;
-    fallback: string;
-    back: string;
-    reload: string;
-    loading: string;
-    sendFeedback: string;
-    feedbackPlaceholder: string;
-    openGitHubIssue: string;
-  }
-> = {
+interface MailErrorCopy {
+  title: string;
+  fallback: string;
+  back: string;
+  reload: string;
+  loading: string;
+  sendFeedback: string;
+  feedbackPlaceholder: string;
+  openGitHubIssue: string;
+}
+
+// Partial per locale, with en-US required: a supported locale Mail has no error
+// copy for falls through to English at the use site, so the framework can add a
+// locale without this file being translated in the same change.
+const MAIL_ERROR_COPY: Partial<Record<LocaleCode, MailErrorCopy>> & {
+  "en-US": MailErrorCopy;
+} = {
   "en-US": {
     title: "Mail could not load this view.",
     fallback: "Something went wrong while loading Mail.",
@@ -492,8 +496,7 @@ function routeErrorMessage(error: unknown, fallback: string): string {
 
 export function ErrorBoundary() {
   const error = useRouteError();
-  const copy =
-    MAIL_ERROR_COPY[activeErrorLocale()] ?? MAIL_ERROR_COPY[DEFAULT_LOCALE];
+  const copy = MAIL_ERROR_COPY[activeErrorLocale()] ?? MAIL_ERROR_COPY["en-US"];
   const message = routeErrorMessage(error, copy.fallback);
   const staleChunk = isDynamicImportFailureMessage(message);
   const [recovering, setRecovering] = useState(staleChunk);

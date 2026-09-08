@@ -3766,7 +3766,7 @@ const calendarSurfaceTranslations = {
       },
     },
   },
-} satisfies Record<Exclude<LocaleCode, "en-US">, PartialMessages>;
+} satisfies Partial<Record<Exclude<LocaleCode, "en-US">, PartialMessages>>;
 
 export const messagesByLocale = {
   "en-US": enUS,
@@ -4299,7 +4299,13 @@ export const messagesByLocale = {
       connectGoogleDescription: "زامن أحداثك وأدر كل شيء في مكان واحد.",
     },
   }),
-} satisfies Record<LocaleCode, Messages>;
+} satisfies Partial<Record<LocaleCode, Messages>>;
+
+// The override loop below walks translation sets keyed by locale. Reading them
+// through a Partial view keeps its "no catalog for this locale, skip it" guard
+// type-checked instead of resolving to `any`.
+export const localeCatalogs: Partial<Record<LocaleCode, Messages>> =
+  messagesByLocale;
 
 const translatedCalendarExtras = {
   "zh-CN": {
@@ -9698,7 +9704,7 @@ function applyTranslatedCalendarOverrides(
   for (const [locale, overrides] of Object.entries(translationSet) as Array<
     [LocaleCode, PartialMessages]
   >) {
-    const messages = messagesByLocale[locale];
+    const messages = localeCatalogs[locale];
     if (!messages) continue;
 
     for (const [group, groupOverrides] of Object.entries(overrides)) {

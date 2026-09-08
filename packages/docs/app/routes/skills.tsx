@@ -3,6 +3,7 @@ import {
   normalizeLocaleCode,
   useLocale,
   useT,
+  type LocaleCode,
 } from "@agent-native/core/client/i18n";
 import { useState, type SyntheticEvent } from "react";
 import { Link } from "react-router";
@@ -22,7 +23,10 @@ import zhCN from "../i18n/zh-CN";
 import zhTW from "../i18n/zh-TW";
 import { withDefaultSocialImage } from "../seo";
 
-const SKILLS_PAGE_META = {
+// Partial on purpose: a locale the docs site has not been translated into yet
+// still resolves through the en-US fallback below instead of blocking the
+// framework's supported-locale list.
+const SKILLS_PAGE_META: Partial<Record<LocaleCode, typeof enUS.skillsPage>> = {
   "ar-SA": arSA.skillsPage,
   "de-DE": deDE.skillsPage,
   "en-US": enUS.skillsPage,

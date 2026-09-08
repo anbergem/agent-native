@@ -57,6 +57,7 @@ export const i18nCatalog = createAgentNativeI18nCatalog({
     "pt-BR": () => import("./pt-BR"),
     "hi-IN": () => import("./hi-IN"),
     "ar-SA": () => import("./ar-SA"),
+    "nb-NO": () => import("./nb-NO"),
   },
 });
 ```
@@ -65,7 +66,7 @@ export const i18nCatalog = createAgentNativeI18nCatalog({
 لغة أخرى. يقوم `localeLoaders` باستيراد كل كتالوج آخر بشكل ديناميكي حتى لا يقوم
 المستخدمون بتنزيل سوى اللغة النشطة. رموز اللغات المدعومة هي `en-US`،
 و`zh-CN`، و`zh-TW`، و`es-ES`، و`fr-FR`، و`de-DE`، و`ja-JP`، و`ko-KR`، و`pt-BR`،
-و`hi-IN`، و`ar-SA`.
+و`hi-IN`، و`ar-SA`، و`nb-NO`.
 
 هذه القائمة ثابتة من قبل إطار العمل. إنها ليست مجرد ما يصادف أن يحزمه هذا
 المثال. `LocaleCode` هو اتحاد TypeScript يضم هذه الرموز بالضبط، ويرفض
@@ -77,7 +78,7 @@ export const i18nCatalog = createAgentNativeI18nCatalog({
 يقبل `createAgentNativeI18nCatalog` أيضًا معامل `sourceLocale` اختياريًا،
 والذي تكون قيمته الافتراضية `en-US`، ومصفوفة `supportedLocales` اختيارية. اضبط
 `supportedLocales` عندما يشحن التطبيق ترجمات لبعض لغات إطار العمل فقط بدلاً
-من العشر لغات كلها. تكون قيمته الافتراضية كل لغة يدعمها إطار العمل. لا يسرد
+من كل اللغات. تكون قيمته الافتراضية كل لغة يدعمها إطار العمل. لا يسرد
 `LanguagePicker` سوى اللغات ضمن هذه المجموعة، وأي لغة مكتشفة أو مطلوبة خارج
 هذه المجموعة تعود إلى `sourceLocale`.
 

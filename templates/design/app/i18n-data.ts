@@ -1774,8 +1774,16 @@ function mergeMessages(overrides: PartialMessages): Messages {
   return deepMerge(enUS, overrides);
 }
 
+/**
+ * Locales this template ships translations for. Narrower than LocaleCode on
+ * purpose: a supported locale with no catalog here falls back to en-US, so the
+ * framework can add a locale without every template being translated first.
+ */
+type TemplateLocale = keyof typeof creativeContextMessagesByLocale;
+type TranslatedLocale = Exclude<TemplateLocale, "en-US">;
+
 function mergeLocalizedMessages(
-  locale: Exclude<LocaleCode, "en-US">,
+  locale: TranslatedLocale,
   overrides: PartialMessages,
 ): Messages {
   return attachLocalizedKeyboardShortcuts(
@@ -5911,7 +5919,7 @@ const designLocaleOverrides = {
       },
     },
   },
-} satisfies Record<Exclude<LocaleCode, "en-US">, PartialMessages>;
+} satisfies Partial<Record<Exclude<LocaleCode, "en-US">, PartialMessages>>;
 
 const designRawLiteralOverrides = {
   "zh-TW": {},
@@ -7376,7 +7384,7 @@ const designRawLiteralOverrides = {
       teamDesign: "الفريق - Design",
     },
   },
-} satisfies Record<Exclude<LocaleCode, "en-US">, PartialMessages>;
+} satisfies Partial<Record<Exclude<LocaleCode, "en-US">, PartialMessages>>;
 
 const designExactEnglishOverrides = {
   "zh-TW": {},
@@ -8233,7 +8241,7 @@ const designExactEnglishOverrides = {
       teamDesign: "الفريق - Design",
     },
   },
-} satisfies Record<Exclude<LocaleCode, "en-US">, PartialMessages>;
+} satisfies Partial<Record<Exclude<LocaleCode, "en-US">, PartialMessages>>;
 
 const designModeFeatureOverrides = {
   "zh-TW": {
@@ -10118,7 +10126,7 @@ const designModeFeatureOverrides = {
       },
     },
   },
-} satisfies Record<Exclude<LocaleCode, "en-US">, PartialMessages>;
+} satisfies Partial<Record<Exclude<LocaleCode, "en-US">, PartialMessages>>;
 
 const designCanvasFeatureOverrides = {
   "zh-TW": {
@@ -11115,7 +11123,7 @@ const designCanvasFeatureOverrides = {
       sendToBack: "إرسال إلى الخلف",
     },
   },
-} satisfies Record<Exclude<LocaleCode, "en-US">, PartialMessages>;
+} satisfies Partial<Record<Exclude<LocaleCode, "en-US">, PartialMessages>>;
 
 const designShapeToolOverrides = {
   "zh-TW": {
@@ -11308,7 +11316,7 @@ const designShapeToolOverrides = {
       },
     },
   },
-} satisfies Record<Exclude<LocaleCode, "en-US">, PartialMessages>;
+} satisfies Partial<Record<Exclude<LocaleCode, "en-US">, PartialMessages>>;
 
 const designPublicShareOverrides = {
   "zh-TW": {
@@ -11611,7 +11619,7 @@ const designPublicShareOverrides = {
       visualEdit: "تحرير مرئي - Design",
     },
   },
-} satisfies Record<Exclude<LocaleCode, "en-US">, PartialMessages>;
+} satisfies Partial<Record<Exclude<LocaleCode, "en-US">, PartialMessages>>;
 
 const designVisualEditOverrides = {
   "zh-TW": {
@@ -11774,7 +11782,7 @@ const designVisualEditOverrides = {
       visualEdit: "تحرير مرئي - Design",
     },
   },
-} satisfies Record<Exclude<LocaleCode, "en-US">, PartialMessages>;
+} satisfies Partial<Record<Exclude<LocaleCode, "en-US">, PartialMessages>>;
 
 const designPendingVisualStyleOverrides = {
   "zh-TW": {
@@ -12129,7 +12137,7 @@ const designPendingVisualStyleOverrides = {
       },
     },
   },
-} satisfies Record<Exclude<LocaleCode, "en-US">, PartialMessages>;
+} satisfies Partial<Record<Exclude<LocaleCode, "en-US">, PartialMessages>>;
 
 const designAddLocalhostScreenOverrides = {
   "zh-TW": {
@@ -12288,7 +12296,7 @@ const designAddLocalhostScreenOverrides = {
       },
     },
   },
-} satisfies Record<Exclude<LocaleCode, "en-US">, PartialMessages>;
+} satisfies Partial<Record<Exclude<LocaleCode, "en-US">, PartialMessages>>;
 
 const designLeftRailOverrides = {
   "zh-TW": {
@@ -12511,7 +12519,7 @@ const designLeftRailOverrides = {
       },
     },
   },
-} satisfies Record<Exclude<LocaleCode, "en-US">, PartialMessages>;
+} satisfies Partial<Record<Exclude<LocaleCode, "en-US">, PartialMessages>>;
 
 const designTokenImportOverrides = {
   "zh-TW": {
@@ -12664,7 +12672,7 @@ const designTokenImportOverrides = {
       },
     },
   },
-} satisfies Record<Exclude<LocaleCode, "en-US">, PartialMessages>;
+} satisfies Partial<Record<Exclude<LocaleCode, "en-US">, PartialMessages>>;
 
 const designImportOverrides = {
   "zh-TW": {
@@ -13374,7 +13382,7 @@ const designImportOverrides = {
       },
     },
   },
-} satisfies Record<Exclude<LocaleCode, "en-US">, PartialMessages>;
+} satisfies Partial<Record<Exclude<LocaleCode, "en-US">, PartialMessages>>;
 
 const designFigmaConnectionOverrides = {
   "zh-TW": {
@@ -13883,7 +13891,7 @@ const designFigmaConnectionOverrides = {
       },
     },
   },
-} satisfies Record<Exclude<LocaleCode, "en-US">, PartialMessages>;
+} satisfies Partial<Record<Exclude<LocaleCode, "en-US">, PartialMessages>>;
 
 // Fill section's "Styles" affordance (color-styles library) — currently a
 // disabled/coming-soon placeholder icon button rather than a dead click.
@@ -13916,7 +13924,7 @@ const designFillStylesComingSoonOverrides = {
   "ar-SA": {
     editPanel: { labels: { stylesComingSoon: "الأنماط — قريبًا" } },
   },
-} satisfies Record<Exclude<LocaleCode, "en-US">, PartialMessages>;
+} satisfies Partial<Record<Exclude<LocaleCode, "en-US">, PartialMessages>>;
 
 // Frame-tool size-presets panel (Figma parity): the right-panel title plus
 // category group labels shown while the Frame tool is armed. Preset device
@@ -14121,7 +14129,9 @@ const designFramePresetsOverrides = {
       },
     },
   },
-} satisfies Record<Exclude<LocaleCode, "en-US" | "zh-TW">, PartialMessages>;
+} satisfies Partial<
+  Record<Exclude<LocaleCode, "en-US" | "zh-TW">, PartialMessages>
+>;
 
 // Figma-parity alignment/distribute/tidy/auto-layout sweep: the reshaped
 // LayersPanel context menu's new pasteToReplace/frameSelection/
@@ -14254,7 +14264,9 @@ const designAlignmentOverrides = {
       flipVertical: "قلب رأسيًا",
     },
   },
-} satisfies Record<Exclude<LocaleCode, "en-US" | "zh-TW">, PartialMessages>;
+} satisfies Partial<
+  Record<Exclude<LocaleCode, "en-US" | "zh-TW">, PartialMessages>
+>;
 
 // 3D-rotation inspector expander (Rotate X/Y, Perspective, the custom-
 // transform note) plus the code-backed GLSL shader picker (GlslShaderPanel):
@@ -14648,7 +14660,9 @@ const designShaderAndRotationOverrides = {
       },
     },
   },
-} satisfies Record<Exclude<LocaleCode, "en-US" | "zh-TW">, PartialMessages>;
+} satisfies Partial<
+  Record<Exclude<LocaleCode, "en-US" | "zh-TW">, PartialMessages>
+>;
 
 // Element interaction-state inspector (Default / Hover / Focus /
 // Focus-visible / Pressed / Disabled selector, the "Editing <State> state"
@@ -14856,7 +14870,9 @@ const designInteractionStatesOverrides = {
       },
     },
   },
-} satisfies Record<Exclude<LocaleCode, "en-US" | "zh-TW">, PartialMessages>;
+} satisfies Partial<
+  Record<Exclude<LocaleCode, "en-US" | "zh-TW">, PartialMessages>
+>;
 
 // Motion keyframe diamond affordance (per-field ◆ toggle next to
 // keyframeable properties), the breakpoint override indicator/reset
@@ -15150,7 +15166,9 @@ const designMotionAndBreakpointOverrides = {
       },
     },
   },
-} satisfies Record<Exclude<LocaleCode, "en-US" | "zh-TW">, PartialMessages>;
+} satisfies Partial<
+  Record<Exclude<LocaleCode, "en-US" | "zh-TW">, PartialMessages>
+>;
 
 // Runtime-layer identity, prompt/comment feedback, and localhost bridge copy.
 // zh-TW lives in app/i18n/zh-TW.ts with the rest of that locale's catalog.
@@ -15468,7 +15486,9 @@ const designRuntimeIdentityAndBridgeOverrides = {
       staleAnchorDetail: "لم يعد العنصر الأصلي موجودًا على لوحة الرسم.",
     },
   },
-} satisfies Record<Exclude<LocaleCode, "en-US" | "zh-TW">, PartialMessages>;
+} satisfies Partial<
+  Record<Exclude<LocaleCode, "en-US" | "zh-TW">, PartialMessages>
+>;
 
 // zh-TW strings for designEditor.componentInstances live in app/i18n/zh-TW.ts
 // (the full zh-TW locale file), not here.
@@ -15684,7 +15704,9 @@ const designComponentInstanceOverrides = {
       },
     },
   },
-} satisfies Record<Exclude<LocaleCode, "en-US" | "zh-TW">, PartialMessages>;
+} satisfies Partial<
+  Record<Exclude<LocaleCode, "en-US" | "zh-TW">, PartialMessages>
+>;
 
 // zh-TW strings for designEditor.makeItRealCard / componentProps /
 // componentSource live in app/i18n/zh-TW.ts (the full zh-TW locale file),
@@ -15882,7 +15904,9 @@ const designComponentSourceOverrides = {
       },
     },
   },
-} satisfies Record<Exclude<LocaleCode, "en-US" | "zh-TW">, PartialMessages>;
+} satisfies Partial<
+  Record<Exclude<LocaleCode, "en-US" | "zh-TW">, PartialMessages>
+>;
 
 const designAuthorFilterOverrides = {
   "zh-CN": {
@@ -16020,7 +16044,9 @@ const designAuthorFilterOverrides = {
       paginationPage: "الصفحة {{page}} من {{totalPages}}",
     },
   },
-} satisfies Record<Exclude<LocaleCode, "en-US" | "zh-TW">, PartialMessages>;
+} satisfies Partial<
+  Record<Exclude<LocaleCode, "en-US" | "zh-TW">, PartialMessages>
+>;
 
 export const messagesByLocale = {
   "en-US": enUS,
@@ -16781,4 +16807,4 @@ export const messagesByLocale = {
       },
     ),
   ),
-} satisfies Record<LocaleCode, Messages>;
+} satisfies Partial<Record<LocaleCode, Messages>>;

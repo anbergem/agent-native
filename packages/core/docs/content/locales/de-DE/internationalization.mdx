@@ -59,6 +59,7 @@ export const i18nCatalog = createAgentNativeI18nCatalog({
     "pt-BR": () => import("./pt-BR"),
     "hi-IN": () => import("./hi-IN"),
     "ar-SA": () => import("./ar-SA"),
+    "nb-NO": () => import("./nb-NO"),
   },
 });
 ```
@@ -67,8 +68,8 @@ export const i18nCatalog = createAgentNativeI18nCatalog({
 Gebietsschema geladen wird. `localeLoaders` lädt jeden anderen Katalog per
 dynamischem Import, sodass Benutzer nur das aktive Gebietsschema
 herunterladen. Die unterstützten Gebietsschemacodes sind `en-US`, `zh-CN`,
-`zh-TW`, `es-ES`, `fr-FR`, `de-DE`, `ja-JP`, `ko-KR`, `pt-BR`, `hi-IN` und
-`ar-SA`.
+`zh-TW`, `es-ES`, `fr-FR`, `de-DE`, `ja-JP`, `ko-KR`, `pt-BR`, `hi-IN`,
+`ar-SA` und `nb-NO`.
 
 Diese Liste ist durch das Framework fest vorgegeben. Sie ist nicht nur das,
 was dieses Beispiel zufällig bündelt. `LocaleCode` ist eine TypeScript-Union
@@ -83,7 +84,7 @@ hinzuzufügen.
 `sourceLocale`, das standardmäßig `en-US` ist, sowie ein optionales
 `supportedLocales`-Array. Setzen Sie `supportedLocales`, wenn eine App
 Übersetzungen nur für einen Teil der Gebietsschemata des Frameworks statt für
-alle zehn ausliefert. Der Standardwert umfasst jedes vom Framework
+alle ausliefert. Der Standardwert umfasst jedes vom Framework
 unterstützte Gebietsschema. `LanguagePicker` listet nur Gebietsschemata aus
 dieser Menge auf, und jedes erkannte oder angeforderte Gebietsschema
 außerhalb dieser Menge fällt auf `sourceLocale` zurück.

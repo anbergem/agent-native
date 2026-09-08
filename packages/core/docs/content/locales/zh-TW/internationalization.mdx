@@ -56,6 +56,7 @@ export const i18nCatalog = createAgentNativeI18nCatalog({
     "pt-BR": () => import("./pt-BR"),
     "hi-IN": () => import("./hi-IN"),
     "ar-SA": () => import("./ar-SA"),
+    "nb-NO": () => import("./nb-NO"),
   },
 });
 ```
@@ -63,7 +64,7 @@ export const i18nCatalog = createAgentNativeI18nCatalog({
 `messages` 會直接捆綁 `en-US`，所以在任何區域設定載入之前它一定可用。
 `localeLoaders` 會動態匯入其他每一個目錄，讓使用者只下載目前使用中的
 區域設定。支援的區域設定代碼為 `en-US`、`zh-CN`、`zh-TW`、`es-ES`、
-`fr-FR`、`de-DE`、`ja-JP`、`ko-KR`、`pt-BR`、`hi-IN` 和 `ar-SA`。
+`fr-FR`、`de-DE`、`ja-JP`、`ko-KR`、`pt-BR`、`hi-IN`、`ar-SA` 和 `nb-NO`。
 
 這份清單是由框架固定的，並不只是這個範例剛好捆綁了哪些項目。
 `LocaleCode` 是一個恰好由這些代碼組成的 TypeScript 聯合型別，
@@ -73,7 +74,7 @@ export const i18nCatalog = createAgentNativeI18nCatalog({
 
 `createAgentNativeI18nCatalog` 也接受一個選用的 `sourceLocale`（預設為
 `en-US`）以及一個選用的 `supportedLocales` 陣列。當應用程式只為框架
-支援的十種區域設定中的一部分提供翻譯，而不是全部都提供時，就設定
+支援的區域設定中的一部分提供翻譯，而不是全部都提供時，就設定
 `supportedLocales`。它預設為框架支援的每一個區域設定。`LanguagePicker`
 只會列出這個集合中的區域設定，任何在此集合之外被偵測到或被要求的
 區域設定都會回退到 `sourceLocale`。

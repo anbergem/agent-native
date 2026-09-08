@@ -553,4 +553,4 @@ export const messagesByLocale = {
       optionsFor: "خيارات المحادثة لـ {{title}}",
     },
   }),
-} satisfies Record<LocaleCode, Messages>;
+} satisfies Partial<Record<LocaleCode, Messages>>;

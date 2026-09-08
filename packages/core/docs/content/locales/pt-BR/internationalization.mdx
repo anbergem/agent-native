@@ -59,6 +59,7 @@ export const i18nCatalog = createAgentNativeI18nCatalog({
     "pt-BR": () => import("./pt-BR"),
     "hi-IN": () => import("./hi-IN"),
     "ar-SA": () => import("./ar-SA"),
+    "nb-NO": () => import("./nb-NO"),
   },
 });
 ```
@@ -67,8 +68,8 @@ export const i18nCatalog = createAgentNativeI18nCatalog({
 disponível antes de qualquer localidade carregar. `localeLoaders` faz import
 dinâmico de todos os outros catálogos, para que os usuários baixem apenas a
 localidade ativa. Os códigos de localidade suportados são `en-US`, `zh-CN`,
-`zh-TW`, `es-ES`, `fr-FR`, `de-DE`, `ja-JP`, `ko-KR`, `pt-BR`, `hi-IN` e
-`ar-SA`.
+`zh-TW`, `es-ES`, `fr-FR`, `de-DE`, `ja-JP`, `ko-KR`, `pt-BR`, `hi-IN`,
+`ar-SA` e `nb-NO`.
 
 Essa lista é fixada pela estrutura. Não é apenas o que este exemplo escolheu
 empacotar. `LocaleCode` é uma union do TypeScript com exatamente esses
@@ -81,7 +82,7 @@ adicionar um arquivo de catálogo ao seu aplicativo.
 `createAgentNativeI18nCatalog` também aceita um `sourceLocale` opcional, cujo
 padrão é `en-US`, e um array `supportedLocales` opcional. Defina
 `supportedLocales` quando um aplicativo enviar traduções para apenas algumas
-das localidades da estrutura, em vez de todas as dez. O padrão é usar todas
+das localidades da estrutura, em vez de todas. O padrão é usar todas
 as localidades que a estrutura suporta. `LanguagePicker` lista apenas as
 localidades desse conjunto, e qualquer localidade detectada ou solicitada
 fora dele recorre a `sourceLocale`.

@@ -153,6 +153,7 @@ const coreMessageLoaders = {
   "pt-BR": () => import("./core-messages/pt-BR.js"),
   "hi-IN": () => import("./core-messages/hi-IN.js"),
   "ar-SA": () => import("./core-messages/ar-SA.js"),
+  "nb-NO": () => import("./core-messages/nb-NO.js"),
 } satisfies Record<
   LocaleCode,
   () => Promise<{ default: AgentChatTranslation }>

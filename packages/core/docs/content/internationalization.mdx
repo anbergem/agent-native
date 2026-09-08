@@ -57,6 +57,7 @@ export const i18nCatalog = createAgentNativeI18nCatalog({
     "pt-BR": () => import("./pt-BR"),
     "hi-IN": () => import("./hi-IN"),
     "ar-SA": () => import("./ar-SA"),
+    "nb-NO": () => import("./nb-NO"),
   },
 });
 ```
@@ -65,7 +66,7 @@ export const i18nCatalog = createAgentNativeI18nCatalog({
 locale loads. `localeLoaders` dynamic-imports every other catalog so users
 only download the active locale. The supported locale codes are `en-US`,
 `zh-CN`, `zh-TW`, `es-ES`, `fr-FR`, `de-DE`, `ja-JP`, `ko-KR`, `pt-BR`,
-`hi-IN`, and `ar-SA`.
+`hi-IN`, `ar-SA`, and `nb-NO`.
 
 This list is fixed by the framework. It is not just what this example
 happens to bundle. `LocaleCode` is a TypeScript union of exactly these
@@ -77,7 +78,7 @@ framework itself, not adding a catalog file to your app.
 `createAgentNativeI18nCatalog` also accepts an optional `sourceLocale`,
 which defaults to `en-US`, and an optional `supportedLocales` array. Set
 `supportedLocales` when an app ships translations for only some of the
-framework's locales instead of all ten. It defaults to every locale the
+framework's locales instead of all of them. It defaults to every locale the
 framework supports. `LanguagePicker` only lists locales in this set, and any
 detected or requested locale outside it falls back to `sourceLocale`.
 

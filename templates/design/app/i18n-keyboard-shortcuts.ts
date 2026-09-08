@@ -240,7 +240,9 @@ export const keyboardShortcutLabels = {
     nudgeAmountDescription:
       "تحرّك مفاتيح الأسهم بالمقدار الصغير، وShift سهم بالمقدار الكبير. داخل إطار التخطيط التلقائي، تعيد مفاتيح الأسهم ترتيب الطبقة.",
   },
-} satisfies Record<Exclude<LocaleCode, "en-US">, KeyboardShortcutLabels>;
+} satisfies Partial<
+  Record<Exclude<LocaleCode, "en-US">, KeyboardShortcutLabels>
+>;
 
 export const keyboardKeyLabels = {
   "zh-TW": {
@@ -463,7 +465,7 @@ export const keyboardKeyLabels = {
     leftBracket: "القوس المربع الأيسر",
     rightBracket: "القوس المربع الأيمن",
   },
-} satisfies Record<Exclude<LocaleCode, "en-US">, KeyboardKeyLabels>;
+} satisfies Partial<Record<Exclude<LocaleCode, "en-US">, KeyboardKeyLabels>>;
 
 interface KeyboardMessagesSource {
   editPanel: {

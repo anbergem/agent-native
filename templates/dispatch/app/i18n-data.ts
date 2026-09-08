@@ -541,10 +541,7 @@ type PartialMessages = {
       : Partial<Messages[K]> & Record<string, unknown>;
 };
 
-const integrationGroupOverrides: Record<
-  Exclude<LocaleCode, "en-US" | "zh-TW">,
-  Partial<Messages["integrations"]>
-> = {
+const integrationGroupOverrides = {
   "zh-CN": {
     groups: "群组",
     groupsDescription: "可一次更新的可复用标签。",
@@ -860,7 +857,15 @@ const integrationGroupOverrides: Record<
     people: "الأشخاص",
     editGroupAria: "تعديل {{name}}",
   },
-};
+} satisfies Partial<
+  // Optional per locale: only the locales this template has been translated
+  // into carry integration-group overrides, and `satisfies` keeps each
+  // present locale exactly typed at its use sites below.
+  Record<
+    Exclude<LocaleCode, "en-US" | "zh-TW">,
+    Partial<Messages["integrations"]>
+  >
+>;
 
 function mergeMessages(
   overrides: PartialMessages,
@@ -4779,4 +4784,4 @@ export const messagesByLocale = {
     },
     integrationGroupOverrides["ar-SA"],
   ),
-} satisfies Record<LocaleCode, Messages>;
+} satisfies Partial<Record<LocaleCode, Messages>>;
