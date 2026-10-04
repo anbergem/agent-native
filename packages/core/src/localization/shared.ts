@@ -10,6 +10,7 @@ export const SUPPORTED_LOCALES = [
   "ko-KR",
   "hi-IN",
   "ar-SA",
+  "nb-NO",
 ] as const;
 
 export type BuiltinLocaleCode = (typeof SUPPORTED_LOCALES)[number];
@@ -105,6 +106,12 @@ export const LOCALE_METADATA: Record<BuiltinLocaleCode, LocaleMetadata> = {
     englishName: "Arabic",
     nativeName: "العربية",
     dir: "rtl",
+  },
+  "nb-NO": {
+    code: "nb-NO",
+    englishName: "Norwegian Bokmål",
+    nativeName: "Norsk bokmål",
+    dir: "ltr",
   },
 };
 

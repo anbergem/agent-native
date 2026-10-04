@@ -22,6 +22,7 @@ import {
 } from "../lib/docs-source";
 import { communityApps } from "./components/community-apps";
 import {
+  DEFAULT_DOCS_LOCALE,
   DOCS_LOCALES,
   docsMarkdownPathForSlug,
   docsPathForSlug,
@@ -206,7 +207,7 @@ function buildDocsSitePages(rootDir: string): DocsSitePage[] {
       description: data.description,
       markdown: localizeDocsMarkdownLinks(
         docsBodyToMarkdownMirror(body),
-        DEFAULT_LOCALE,
+        DEFAULT_DOCS_LOCALE,
       ),
       markdownPath: docsMarkdownPathForSlug(slug),
       lastmod: docsLastmod,

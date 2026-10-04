@@ -188,6 +188,21 @@ export const ENVIRONMENT_BADGE_MESSAGES: Record<
     localDevelopment: "بيئة التطوير المحلية",
     development: "بيئة التطوير",
   },
+  "nb-NO": {
+    betaLabel: "beta",
+    betaTitle: "Du er på Agent-Native {{label}}",
+    productionTitle: "Du er på Agent-Native Production",
+    activeDevelopment: "Under aktiv utvikling",
+    feedbackPrompt:
+      "Denne malen er under aktiv utvikling. Vi vil gjerne ha tilbakemeldinger fra deg mens vi bygger den.",
+    continuePrompt: "Velg hvor du vil fortsette.",
+    switchToProduction: "Bytt til produksjon",
+    goToBeta: "Gå til beta",
+    hideBadge: "Skjul merket",
+    openSwitcher: "Åpne velgeren for {{title}}",
+    localDevelopment: "Lokalt utviklingsmiljø",
+    development: "Utviklingsmiljø",
+  },
 };
 
 export function environmentBadgeMessagesForLocale(

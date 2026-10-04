@@ -75,6 +75,11 @@ const LANGUAGE_PICKER_COPY: Record<
     system: "النظام",
     systemDescription: "استخدام لغة المتصفح",
   },
+  "nb-NO": {
+    label: "Språk",
+    system: "System",
+    systemDescription: "Bruk nettleserspråket ditt",
+  },
 };
 
 function browserLanguageCandidates(): string[] {

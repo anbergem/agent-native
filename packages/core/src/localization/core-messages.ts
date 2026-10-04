@@ -23,6 +23,7 @@ const supplementalCoreMessageLoaders = {
   "pt-BR": () => import("./core-messages/supplemental/pt-BR.js"),
   "hi-IN": () => import("./core-messages/supplemental/hi-IN.js"),
   "ar-SA": () => import("./core-messages/supplemental/ar-SA.js"),
+  "nb-NO": () => import("./core-messages/supplemental/nb-NO.js"),
 } satisfies Record<
   BuiltinLocaleCode,
   () => Promise<typeof import("./core-messages/supplemental/en-US.js")>

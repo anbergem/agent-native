@@ -1,11 +1,12 @@
 import {
-  DEFAULT_LOCALE,
   LOCALE_METADATA,
   localeDirection,
   normalizeLocaleCode,
 } from "@agent-native/core/client/i18n";
 
-export const DEFAULT_DOCS_LOCALE = DEFAULT_LOCALE;
+// The docs site's own locale list. It is narrower than the framework's
+// built-in locales: a locale is added here only once the site catalog and
+// localized pages exist for it.
 export const DOCS_LOCALES = [
   "en-US",
   "es-ES",
@@ -20,6 +21,7 @@ export const DOCS_LOCALES = [
   "ar-SA",
 ] as const;
 export type DocsLocale = (typeof DOCS_LOCALES)[number];
+export const DEFAULT_DOCS_LOCALE: DocsLocale = "en-US";
 export const DOCS_LOCALE_METADATA = LOCALE_METADATA;
 export { localeDirection };
 

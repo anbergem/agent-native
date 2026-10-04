@@ -186,6 +186,18 @@ const FEEDBACK_COPY: Record<
     sendError: "تعذر إرسال الملاحظات",
     keyboardHint: "{{shortcut}} Enter للإرسال",
   },
+  "nb-NO": {
+    label: "Tilbakemelding",
+    placeholder: "Hva fungerer, hva er ødelagt, eller hva ville du endret?",
+    submit: "Send tilbakemelding",
+    submitting: "Sender ...",
+    success: "Takk for tilbakemeldingen!",
+    loadError: "Kunne ikke laste tilbakemeldingsskjemaet",
+    invalidUrl: "Ugyldig nettadresse for tilbakemelding",
+    emptyError: "Skriv noe først",
+    sendError: "Kunne ikke sende tilbakemeldingen",
+    keyboardHint: "{{shortcut}} Enter for å sende",
+  },
 };
 
 function parseTarget(url: string): ParsedTarget | null {

@@ -81,6 +81,12 @@ export const BILLING_NOTICE_MESSAGES: Record<
       "توقف طلب الذكاء الاصطناعي لأن أرصدة حساب Builder المتصل بك قد نفدت. قم بترقية خطة Builder للمتابعة.",
     builderCreditUpgrade: "ترقية الخطة",
   },
+  "nb-NO": {
+    builderCreditLimitTitle: "Builder-kredittene dine er brukt opp",
+    builderCreditLimitEmailBody:
+      "En KI-forespørsel stoppet fordi den tilkoblede Builder-kontoen din er tom for kreditter. Oppgrader Builder-abonnementet ditt for å fortsette.",
+    builderCreditUpgrade: "Oppgrader abonnement",
+  },
 };
 
 export async function loadBillingNoticeMessagesForLocale(

@@ -123,6 +123,15 @@ export const AGENT_RESOURCE_PACK_MESSAGES: Record<
     importPackFailed: "تعذر استيراد الحزمة",
     importPackInvalid: "هذا الملف ليس حزمة موارد صالحة",
   },
+  "nb-NO": {
+    exportPack: "Eksporter pakke",
+    importPack: "Importer pakke",
+    exportPackSuccess: "Ressurspakken er lastet ned",
+    exportPackFailed: "Kunne ikke eksportere pakken",
+    importPackSuccess: "Importerte {{imported}} filer, hoppet over {{skipped}}",
+    importPackFailed: "Kunne ikke importere pakken",
+    importPackInvalid: "Den filen er ikke en gyldig ressurspakke",
+  },
 };
 
 export function agentResourcePackMessagesForLocale(

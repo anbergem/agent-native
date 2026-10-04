@@ -112,9 +112,9 @@ const en = {
 
 type TrashMessages = Record<string, string>;
 
-const translations: Record<
-  Exclude<BuiltinLocaleCode, "en-US">,
-  TrashMessages
+// Partial: a built-in locale with no translation here falls back to en-US.
+const translations: Partial<
+  Record<Exclude<BuiltinLocaleCode, "en-US">, TrashMessages>
 > = {
   "es-ES": {
     searchPlaceholder: "Buscar en la papelera",
@@ -1237,7 +1237,9 @@ const translations: Record<
   },
 };
 
-export const trashMessagesByLocale: Record<BuiltinLocaleCode, TrashMessages> = {
+export const trashMessagesByLocale: Partial<
+  Record<BuiltinLocaleCode, TrashMessages>
+> & { "en-US": TrashMessages } = {
   "en-US": en,
   ...translations,
 };

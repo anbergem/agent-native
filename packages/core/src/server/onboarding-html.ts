@@ -1082,6 +1082,100 @@ const AUTH_LOCALE_COPY: Record<LocaleCode, typeof EN_AUTH_COPY> = {
     migrateLocalFallback: "تابع تسجيل الدخول لترحيل البيانات المحلية.",
     googlePopupHelp: "اسمح بالنوافذ المنبثقة لهذا الموقع ثم حاول مرة أخرى",
   },
+  "nb-NO": {
+    ...NATIVE_AUTH_COPY["nb-NO"],
+    languageLabel: "Språk",
+    systemLanguage: "System",
+    pageTitleSignIn: "Logg inn",
+    pageTitleWelcome: "Velkommen",
+    welcomeTitle: "Velkommen",
+    signInTitle: "Logg inn",
+    welcomeBackTitle: "Velkommen tilbake",
+    checkEmailTitle: "Sjekk e-posten din",
+    resetPasswordTitle: "Tilbakestill passordet",
+    createAccountSubtitle: "Opprett en konto for å komme i gang",
+    googleOnlySubtitle:
+      "Bruk Google-kontoen for arbeidsområdet ditt for å fortsette",
+    signInSubtitle: "Logg inn på kontoen din",
+    finishAccountSubtitle: "Fullfør opprettelsen av kontoen din",
+    resetPasswordSubtitle: "Tilbakestill passordet ditt",
+    upgradeCopy:
+      "Fortsett å logge inn for å knytte denne appen til kontoen din og flytte lokale data.",
+    createAccount: "Opprett konto",
+    passwordMinPlaceholder: `Minst ${PASSWORD_MIN_LENGTH} tegn`,
+    confirmPasswordPlaceholder: "Bekreft passordet",
+    magicLinkTitle: NATIVE_AUTH_COPY["nb-NO"].welcomeTitle,
+    magicLinkSubtitle: NATIVE_AUTH_COPY["nb-NO"].welcomeSubtitle,
+    signupProgress: "Framdrift i registreringen",
+    progressAccount: "Konto",
+    progressVerify: "Bekreft",
+    progressStart: "Start",
+    verificationSent: "Bekreftelses-e-post er sendt",
+    verifyCopyPrefix: "Vi sendte en sikker lenke til",
+    verifyCopySuffix:
+      ". Klikk på den, kom tilbake hit, og denne appen fullfører påloggingen automatisk.",
+    verificationNote:
+      "Du kan la denne fanen stå åpen. Hvis den ikke har oppdatert seg når du kommer tilbake, bruk Fortsett.",
+    continue: "Fortsett",
+    resendEmail: "Send e-posten på nytt",
+    sendResetLink: "Send lenke for tilbakestilling",
+    backToSignIn: "Tilbake til pålogging",
+    localDevButton: "Fortsett som lokal utvikler",
+    localDevDescription:
+      "Fungerer bare i lokal utvikling på denne datamaskinen.",
+    localDevHelp: "Les om pålogging i lokal utvikling",
+    localDevSigningIn: "Logger inn lokalt …",
+    localDevFailed: "Pålogging for lokal utvikling er utilgjengelig.",
+    localDevFullOptions: "Vis alle påloggingsvalg",
+    localDevHideFullOptions: "Skjul alle påloggingsvalg",
+    continueWithAgentNative: "Fortsett med Agent-Native",
+    identitySsoHint:
+      "Bruk den samme bekreftede e-postadressen som du bruker i de andre Agent-Native-appene dine.",
+    openSource: "GRATIS OG ÅPEN KILDEKODE",
+    learnMore: "Les mer",
+    useOwnGoogleClient: "Bruk din egen Google OAuth-klient:",
+    copyCommand: "Kopier kommandoen",
+    copied: "Kopiert",
+    closeGoogleChoices: "Lukk valgene for Google-pålogging",
+    signInToContinue: "Logg inn for å fortsette.",
+    finishSignInFailed: "Vi kunne ikke fullføre påloggingen. Logg inn manuelt.",
+    enterPasswordAfterVerification:
+      "Skriv inn passordet ditt etter at du har bekreftet e-postadressen.",
+    finishSignInManually:
+      "Vi kunne ikke fullføre påloggingen automatisk. Logg inn for å fortsette.",
+    stillWaitingVerification:
+      "Venter fortsatt på bekreftelse. Klikk på lenken i e-posten, og prøv Fortsett igjen.",
+    checkVerificationFailed:
+      "Vi kunne ikke sjekke bekreftelsesstatusen din. Prøv igjen.",
+    verificationLinkInvalid:
+      "Denne bekreftelseslenken er ugyldig eller utløpt. Be om en ny.",
+    checkingVerification: "Sjekker bekreftelsen din ...",
+    sent: "Sendt",
+    sentVerification: "Sendte en ny bekreftelseslenke.",
+    resendVerificationFailed:
+      "Vi kunne ikke sende bekreftelses-e-posten på nytt. Prøv igjen.",
+    networkErrorRetry:
+      "Vi fikk ikke kontakt med serveren. Sjekk tilkoblingen og prøv igjen.",
+    networkErrorDashRetry:
+      "Vi fikk ikke kontakt med serveren. Sjekk tilkoblingen og prøv igjen.",
+    passwordsMismatch: "Passordene er ikke like.",
+    creatingAccount: "Oppretter konto …",
+    registrationFailed: "Vi kunne ikke opprette kontoen din. Prøv igjen.",
+    deploySettingsMissingError:
+      "Kontoer er utilgjengelige til denne utrullingen er satt opp.",
+    accountCreatedSigningIn: "Kontoen er opprettet – logger deg inn …",
+    emailVerifiedFinishing:
+      "E-postadressen er bekreftet. Fullfører påloggingen ...",
+    emailVerifiedSignIn:
+      "E-postadressen er bekreftet. Logg inn for å fortsette.",
+    resetEmailSent:
+      "Hvis den e-postadressen finnes, er en lenke for tilbakestilling på vei.",
+    resetEmailFailed:
+      "Vi kunne ikke sende e-post for tilbakestilling av passord. Sjekk e-postadressen og prøv igjen.",
+    googleNotConfigured: "Google-pålogging er ikke tilgjengelig akkurat nå.",
+    migrateLocalFallback: "Fortsett å logge inn for å flytte lokale data.",
+    googlePopupHelp: "Tillat popup-vinduer for dette nettstedet og prøv igjen",
+  },
 };
 
 export interface SignupLegalNoticeOptions {
@@ -2672,6 +2766,12 @@ const DEPLOY_SETTINGS_PAGE_COPY: Record<
     message:
       "متغيرات البيئة مفقودة أو غير صالحة: {keys}. أضفها في إعدادات متغيرات بيئة الإنتاج لدى مزود الاستضافة، ثم أعد النشر.",
     docsLink: "اقرأ دليل الإعداد",
+  },
+  "nb-NO": {
+    title: "Fullfør oppsettet av denne utrullingen",
+    message:
+      "Manglende eller ugyldige miljøvariabler: {keys}. Legg dem til i innstillingene for produksjonsmiljøvariabler hos hostingleverandøren din, og rull ut på nytt.",
+    docsLink: "Les oppsettsveiledningen",
   },
 };
 

@@ -3707,8 +3707,21 @@ function mergeMessages(overrides: PartialMessages): Messages {
   };
 }
 
+/**
+ * Locales this template ships translations for. Narrower than the framework's
+ * built-in locale list on purpose: a supported locale with no catalog here
+ * falls back to en-US, so the framework can add a locale without every
+ * template being translated first.
+ *
+ * i18n-copy-ignore: type-only change; no user-facing copy was edited.
+ */
+type TranslatedLocale = Exclude<
+  keyof typeof creativeContextMessagesByLocale,
+  "en-US"
+>;
+
 function mergeLocalizedMessages(
-  locale: Exclude<LocaleCode, "en-US">,
+  locale: TranslatedLocale,
   overrides: PartialMessages,
 ): Messages {
   return mergeMessages({
@@ -8169,4 +8182,4 @@ export const messagesByLocale = {
       daysAgo: "قبل {{count}} يوم",
     },
   }),
-} satisfies Record<LocaleCode, Messages>;
+} satisfies Partial<Record<LocaleCode, Messages>>;

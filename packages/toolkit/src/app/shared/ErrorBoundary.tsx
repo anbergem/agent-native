@@ -172,6 +172,18 @@ const errorCopy: Record<
     feedbackPlaceholder: "صف ما حدث قبل ظهور هذا الخطأ.",
     openGitHubIssue: "فتح مشكلة في GitHub",
   },
+  "nb-NO": {
+    loadingLatest: "Laster den nyeste versjonen ...",
+    genericTitle: "Noe gikk galt",
+    genericDetails: "Det oppsto en uventet feil.",
+    notFoundTitle: "Siden ble ikke funnet",
+    notFoundDetails: "Vi fant ikke denne siden.",
+    statusTitle: (status) => `Feil ${status}`,
+    goHome: "Gå til startsiden",
+    sendFeedback: "Send tilbakemelding",
+    feedbackPlaceholder: "Beskriv hva som skjedde før denne feilen dukket opp.",
+    openGitHubIssue: "Opprett GitHub-sak",
+  },
 };
 
 function readErrorLocale(): LocaleCode {

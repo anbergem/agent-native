@@ -1,10 +1,7 @@
 import { defineAction } from "@agent-native/core/action";
 import type { ActionRunContext } from "@agent-native/core/action";
 import { emit } from "@agent-native/core/event-bus";
-import {
-  DEFAULT_LOCALE,
-  type LocaleCode,
-} from "@agent-native/core/localization";
+import { type LocaleCode } from "@agent-native/core/localization";
 import { buildDeepLink, getRequestUserEmail } from "@agent-native/core/server";
 import { track } from "@agent-native/core/tracking";
 import { z } from "zod";
@@ -107,7 +104,7 @@ function localizedDate(value: string, locale: string): string | undefined {
 function getZoomFailureMessage(locale: LocaleCode): string {
   return (
     zoomAddFailedMessages[locale as keyof typeof zoomAddFailedMessages] ??
-    zoomAddFailedMessages[DEFAULT_LOCALE]
+    zoomAddFailedMessages["en-US"]
   );
 }
 

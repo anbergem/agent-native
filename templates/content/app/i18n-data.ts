@@ -2203,8 +2203,19 @@ const esESRawLiteralOverrides: PartialMessages = {
   },
 };
 
+/**
+ * Locales this template ships translations for. Narrower than the framework's
+ * built-in locale list on purpose: a supported locale with no catalog here
+ * falls back to en-US, so the framework can add a locale without every
+ * template being translated first.
+ */
+type TranslatedLocale = Exclude<
+  keyof typeof creativeContextMessagesByLocale,
+  "en-US"
+>;
+
 function mergeMessagesForLocale(
-  locale: Exclude<LocaleCode, "en-US">,
+  locale: TranslatedLocale,
   overrides: PartialMessages,
   bundle: ContentLocaleBundle,
 ): Messages {
@@ -2302,7 +2313,7 @@ function mergeMessagesForLocale(
       },
     },
     sidebar: { ...base.sidebar, ...rawLiteralOverrides.sidebar },
-    trash: trashMessagesByLocale[locale],
+    trash: trashMessagesByLocale[locale] ?? trashMessagesByLocale["en-US"],
   };
 }
 
@@ -2320,7 +2331,7 @@ export function registerMessagesForLocale(
 }
 
 export function buildMessagesForLocale(
-  locale: Exclude<LocaleCode, "en-US">,
+  locale: TranslatedLocale,
   overrides: PartialMessages,
   bundle: ContentLocaleBundle,
 ): Messages {

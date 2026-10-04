@@ -6,6 +6,7 @@ import frFR from "./catalogs/fr-FR.js";
 import hiIN from "./catalogs/hi-IN.js";
 import jaJP from "./catalogs/ja-JP.js";
 import koKR from "./catalogs/ko-KR.js";
+import nbNO from "./catalogs/nb-NO.js";
 import ptBR from "./catalogs/pt-BR.js";
 import zhCN from "./catalogs/zh-CN.js";
 import zhTW from "./catalogs/zh-TW.js";
@@ -23,6 +24,7 @@ export const TOOLKIT_LOCALES = [
   "pt-BR",
   "hi-IN",
   "ar-SA",
+  "nb-NO",
 ] as const;
 
 type ToolkitLocale = (typeof TOOLKIT_LOCALES)[number];
@@ -40,6 +42,7 @@ const messagesByLocale: Record<ToolkitLocale, ToolkitAgentChatTranslation> = {
   "pt-BR": ptBR,
   "hi-IN": hiIN,
   "ar-SA": arSA,
+  "nb-NO": nbNO,
 };
 
 const legacyAliases = [
